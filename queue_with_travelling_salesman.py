@@ -3,14 +3,15 @@ from typing import List
 from scipy.spatial.distance import pdist, squareform
 
 vectors = np.array([
-    [1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 2],
-    [1, 1, 1, 1, 1, 1, 3],
-    [1, 1, 1, 1, 1, 1, 4],
-    [9, 9, 9, 9, 9, 9, 9],
-    [9, 9, 9, 9, 9, 9, 8],
-    [9, 9, 9, 9, 9, 9, 7],
-    [9, 9, 9, 9, 9, 9, 6]
+    [1, 1, 1, 1],
+    [2, 2, 2, 2],
+    [3, 3, 3, 3],
+    [4, 4, 4, 4],
+    [5, 5, 5, 5],
+    [6, 6, 6, 6],
+    [7, 7, 7, 7],
+    [8, 8, 8, 8],
+    [9, 9, 9, 9]
 ])
 
 def calculate_euclidean_distances(vectors: np.ndarray) -> np.ndarray:
@@ -85,7 +86,9 @@ distances = calculate_euclidean_distances(vectors)
 modified_distances = modify_distances(distances)
 
 # Solve TSP with modified distances
-tsp_path = nearest_neighbor_algorithm(modified_distances)
+tsp_path_opposite = nearest_neighbor_algorithm(modified_distances)
+tsp_path_similar = nearest_neighbor_algorithm(distances)
 
 # Print the path
-print("Modified TSP Path:", tsp_path)
+print("Modified TSP Path:", tsp_path_opposite)
+print("Modified TSP Path:", tsp_path_similar)
